@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
     selector: 'courses', //<courses>
     template: `
         <h2>Courses</h2>
+        <img src="{{ imageUrl }}" />
         <h2>{{ title }}</h2>
         <ul>
             <li *ngFor="let course of courses">
@@ -18,9 +19,9 @@ import { Component } from '@angular/core';
 export class CoursesComponent {
     title = "List of Courses";
     courses;
+    imageUrl = "http://lorempixel.com/400/200";
 
-    constructor() {
-        let service = new CoursesService();
+    constructor(service: CoursesService) {
         this.courses = service.getCourses();
     }
 }
